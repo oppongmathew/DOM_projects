@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Scores</title>
+
+</head>
+<body>
+  <h2>Student Scores</h2>
+  <table id="scoreTable">
+    <tr>
+      <th>Name</th>
+      <th>Score</th>
+    </tr>
+  </table>
+
+  <script>
+    let students = [
+      {name: "Ama", score: 85},
+      {name: "Kwame", score: 92},
+      {name: "Efua", score: 76}
+    ];
+
+    const table = document.getElementById("scoreTable");
+
+    students.forEach(student => {
+      const row = document.createElement("tr");
+
+      const nameCell = document.createElement("td");
+      nameCell.textContent = student.name;
+
+      const scoreCell = document.createElement("td");
+      scoreCell.textContent = student.score;
+
+      if (student.score > 80) {
+        scoreCell.classList.add("high-score");
+      }
+
+      row.appendChild(nameCell);
+      row.appendChild(scoreCell);
+      table.appendChild(row);
+    });
+  </script>
+  
+    <style>
+    .high-score { color: rgb(245, 58, 26); font-weight: bold; }
+    table, th, td { border: 3px solid black; border-collapse: collapse; padding: 5px; }
+  </style>
+</body>
+</html>
